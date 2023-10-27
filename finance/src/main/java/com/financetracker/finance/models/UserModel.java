@@ -30,6 +30,8 @@ public class UserModel {
      @OneToMany(mappedBy = "userModel")
      private List<UserExpenses> expenses = new ArrayList<>();
 
+     @OneToMany(mappedBy = "userModel")
+     private List<IncomeModel> income = new ArrayList<>();
 
     public UserModel() {
     }
@@ -88,6 +90,15 @@ public class UserModel {
 
     public void setExpenses(List<UserExpenses> expenses) {
         this.expenses = expenses;
+    }
+
+    @JsonBackReference
+    public List<IncomeModel> getIncome() {
+        return this.income;
+    }
+
+    public void setIncome(List<IncomeModel> income) {
+        this.income = income;
     }
 
 }
