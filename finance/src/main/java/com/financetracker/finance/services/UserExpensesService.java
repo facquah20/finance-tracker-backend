@@ -2,12 +2,14 @@ package com.financetracker.finance.services;
 
 import java.util.Collections;
 import java.util.List;
+//import java.util.ArrayList;
 import com.financetracker.finance.models.UserExpenses;
 import com.financetracker.finance.models.UserModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import com.financetracker.finance.repository.UserExpensesRepository;
 import com.financetracker.finance.repository.UserModelRepository;
@@ -16,26 +18,24 @@ import com.financetracker.finance.repository.UserModelRepository;
 public class UserExpensesService {
     @Autowired
     private UserExpensesRepository userExpensesRepository;
-
+    
     @Autowired
-    private  UserModelRepository userModelRepository;
+    private UserModelRepository userModelRepository;
 
-    @Autowired
-    public UserExpensesService(
-        UserExpensesRepository userExpensesRepository,
-        UserModelRepository userModelRepository
-        ){
-            this.userExpensesRepository = userExpensesRepository;
-            this.userModelRepository = userModelRepository;
-        }
-
-        public List<UserExpenses> getUserExpenses(Long userId){
-            //retrieve the user from the database
-            UserModel user = userModelRepository.findById(userId).orElse(null);
+    /**
+     * @params {Long} userId 
+     * @description retuns all the expenses of a user with a given id
+     * 
+     */
+        public List<UserExpenses> getUserExpenses(Long id){
+            UserModel user = userModelRepository.findById(id).orElse(null);
             if(user == null){
                 return Collections.emptyList();
             }
-            return userExpensesRepository.findAllByUserModel(userId);
+            
+           else {
+             return userExpensesRepository.findByUserModel(user);
+           }
         }
 
         public void createNewExpense(UserExpenses expenses){

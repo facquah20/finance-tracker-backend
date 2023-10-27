@@ -2,7 +2,9 @@ package com.financetracker.finance.models;
 
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+//import org.springframework.beans.factory.annotation.Autowired;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +31,6 @@ public class UserExpenses {
         
     }
 
-    @Autowired
      public UserExpenses(Long id, float amount, String source, Date date) {
         this.id = id;
         this.amount = amount;
@@ -68,6 +69,7 @@ public class UserExpenses {
         this.date = date;
     }
 
+    @JsonBackReference
     public UserModel getUserModel() {
         return this.userModel;
     }

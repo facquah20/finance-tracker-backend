@@ -3,7 +3,9 @@ package com.financetracker.finance.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+//import org.springframework.beans.factory.annotation.Autowired;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +34,6 @@ public class UserModel {
     public UserModel() {
     }
 
-    @Autowired
     public UserModel(Long id, String firstname, String lastname, String password, String email) {
         this.id = id;
         this.firstname = firstname;
@@ -80,6 +81,7 @@ public class UserModel {
     public void setEmail(String email) {
         this.email = email.toLowerCase();
     }
+    @JsonBackReference
     public List<UserExpenses> getExpenses() {
         return this.expenses;
     }

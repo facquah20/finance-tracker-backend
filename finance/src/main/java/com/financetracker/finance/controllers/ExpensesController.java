@@ -1,6 +1,7 @@
 package com.financetracker.finance.controllers;
 
 import java.util.Date;
+import java.util.List;
 
 import com.financetracker.finance.models.UserExpenses;
 import com.financetracker.finance.models.UserModel;
@@ -9,8 +10,10 @@ import com.financetracker.finance.services.UserExpensesService;
 import com.financetracker.finance.validation.ExpensesValidator;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+//import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController  
 @RequestMapping("/user/expenses")
 public class ExpensesController {
     @Autowired
@@ -32,7 +35,15 @@ public class ExpensesController {
 
     @GetMapping("/{userId}")
     public ResponseEntity<Object> getUserExpenses(@PathVariable Long userId){
-        return new ResponseEntity<Object>(userExpensesService.getUserExpenses(userId), HttpStatus.OK);
+            ObjectMapper objectMapper = new ObjectMapper();
+            List<UserExpenses> expenses = userExpensesService.getUserExpenses(userId);
+        try{
+            String json = objectMapper.writeValueAsString(expenses);
+            return ResponseEntity.ok().body(json);
+
+        }catch(Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @PostMapping
@@ -52,6 +63,7 @@ public class ExpensesController {
         String res = validator.validateField(expense);
 
         if(res.equalsIgnoreCase("success")){
+            if(user == null)return ResponseEntity.badRequest().body("User with the given id does not exist");
             expense.setUserModel(user);
             userExpensesService.createNewExpense(expense);
             return ResponseEntity.ok().body("Expense added");
@@ -83,3 +95,4 @@ public class ExpensesController {
     }
     
 }
+ 
