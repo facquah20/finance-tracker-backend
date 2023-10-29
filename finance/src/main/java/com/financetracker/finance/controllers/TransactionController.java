@@ -1,9 +1,13 @@
 package com.financetracker.finance.controllers;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,5 +58,31 @@ public ResponseEntity<Object> addTransaction(
 
 }
 
+@GetMapping
+public List<TransactionModel> getAllTransactionsByUser(@RequestParam Long userId){
+    return transactionService.getAllTransactionsByUser(userId);
+}
+
+@DeleteMapping
+public ResponseEntity<Object> deleteTransaction(Long transactionId){
+    transactionService.deleteTransaction(transactionId);
+    return ResponseEntity.ok().body("Transaction deleted successfully");
+}
+
+@PutMapping("/update-receiver")
+public ResponseEntity<Object> updatePersonReceived(Long transactionId, String personReceived){
+    transactionService.updatePersonReceived(transactionId, personReceived);
+    return ResponseEntity.ok().body("receiver updated successfully");
+}
+@PutMapping("/update-amount")
+public ResponseEntity<Object> updateTransactionAmount(Long transactionId,float amount){
+    if(amount<=0){
+        return ResponseEntity.badRequest().body("Amount cannot be zero or negative");
+    }
+    else{
+        transactionService.updateAmountTransacted(transactionId, amount);
+        return ResponseEntity.ok().body("transaction amount updated successfully");
+}
+    }
 }
     
