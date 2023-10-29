@@ -4,12 +4,14 @@ import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.financetracker.finance.models.TransactionModel;
 import com.financetracker.finance.models.UserModel;
 import com.financetracker.finance.repository.TransactionRepository;
 import com.financetracker.finance.repository.UserModelRepository;
 
+@Service
 public class TransactionService {
     @Autowired
     private UserModelRepository userModelRepository;

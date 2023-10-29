@@ -19,7 +19,7 @@ import com.financetracker.finance.services.TransactionService;
 import com.financetracker.finance.validation.Transactionvalidator;
 
 @RestController
-@RequestMapping("/user/transaction")
+@RequestMapping("/api/user/transaction")
 public class TransactionController {
     @Autowired
     private UserModelRepository userModelRepository;
@@ -64,18 +64,18 @@ public List<TransactionModel> getAllTransactionsByUser(@RequestParam Long userId
 }
 
 @DeleteMapping
-public ResponseEntity<Object> deleteTransaction(Long transactionId){
+public ResponseEntity<Object> deleteTransaction(@RequestParam Long transactionId){
     transactionService.deleteTransaction(transactionId);
     return ResponseEntity.ok().body("Transaction deleted successfully");
 }
 
 @PutMapping("/update-receiver")
-public ResponseEntity<Object> updatePersonReceived(Long transactionId, String personReceived){
+public ResponseEntity<Object> updatePersonReceived(@RequestParam Long transactionId, @RequestParam String personReceived){
     transactionService.updatePersonReceived(transactionId, personReceived);
     return ResponseEntity.ok().body("receiver updated successfully");
 }
 @PutMapping("/update-amount")
-public ResponseEntity<Object> updateTransactionAmount(Long transactionId,float amount){
+public ResponseEntity<Object> updateTransactionAmount(@RequestParam Long transactionId,@RequestParam float amount){
     if(amount<=0){
         return ResponseEntity.badRequest().body("Amount cannot be zero or negative");
     }

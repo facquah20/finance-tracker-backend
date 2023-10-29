@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController  
-@RequestMapping("/user/expenses")
+@RequestMapping("/api/user/expenses")
 public class ExpensesController {
     @Autowired
     private UserExpensesService userExpensesService;

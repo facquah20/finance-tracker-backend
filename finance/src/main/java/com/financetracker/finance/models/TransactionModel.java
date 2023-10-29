@@ -20,7 +20,7 @@ public class TransactionModel {
     private float amount;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "transaction_user_id")
     private UserModel userModel;
 
     public TransactionModel(){
@@ -66,7 +66,7 @@ public class TransactionModel {
         this.amount = amount;
     }
 
-    @JsonBackReference
+    @JsonBackReference(value = "user-transactions")
     public UserModel getUserModel() {
         return this.userModel;
     }

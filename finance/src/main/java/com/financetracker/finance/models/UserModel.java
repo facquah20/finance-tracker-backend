@@ -13,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.CascadeType;
 
 @Entity
 @Table(name = "users")
@@ -27,13 +28,13 @@ public class UserModel {
     private String email;
      private String password;
     
-     @OneToMany(mappedBy = "userModel")
+     @OneToMany(mappedBy = "userModel", cascade = CascadeType.ALL, orphanRemoval = true)
      private List<UserExpenses> expenses = new ArrayList<>();
 
-     @OneToMany(mappedBy = "userModel")
+     @OneToMany(mappedBy = "userModel", cascade = CascadeType.ALL, orphanRemoval = true )
      private List<IncomeModel> income = new ArrayList<>();
 
-     @OneToMany(mappedBy = "userModel")
+     @OneToMany(mappedBy = "userModel",cascade = CascadeType.ALL , orphanRemoval = true)
      private List<TransactionModel> transactions = new ArrayList<>();
 
     public UserModel() {
@@ -86,7 +87,7 @@ public class UserModel {
     public void setEmail(String email) {
         this.email = email.toLowerCase();
     }
-    @JsonBackReference
+    @JsonBackReference(value="user-expenses")
     public List<UserExpenses> getExpenses() {
         return this.expenses;
     }
@@ -95,7 +96,7 @@ public class UserModel {
         this.expenses = expenses;
     }
 
-    @JsonBackReference
+    @JsonBackReference(value = "user-income")
     public List<IncomeModel> getIncome() {
         return this.income;
     }
@@ -104,7 +105,7 @@ public class UserModel {
         this.income = income;
     }
 
-     @JsonBackReference
+     @JsonBackReference(value = "user-transactions")
      public List<TransactionModel> getTransactions() {
         return this.transactions;
     }

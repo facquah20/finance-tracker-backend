@@ -18,7 +18,7 @@ import com.financetracker.finance.services.UserService;
 import com.financetracker.finance.validation.UserModelValidator;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
@@ -27,16 +27,9 @@ public class UserController {
     @Autowired
     private UserModelValidator userModelValidator;
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<Object> createUserAccount(@RequestBody UserModel userModel){
         try{
-            //save the data into the database and return the data
-            // UserModel savedData = userService.createUserAccount(userModel);
-            // if(savedData==null){
-            //     return new ResponseEntity<Object>("Email already exist",HttpStatus.valueOf(400));
-            // }
-            
-            // return new ResponseEntity<Object>(savedData,HttpStatus.OK);
             /* validate the fields */
             String state = userModelValidator.validateField(userModel);
             if(!state.equalsIgnoreCase("success")){
@@ -73,3 +66,4 @@ public class UserController {
     }
     
 }
+ 

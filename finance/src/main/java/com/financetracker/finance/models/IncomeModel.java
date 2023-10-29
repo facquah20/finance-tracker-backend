@@ -23,7 +23,7 @@ public class IncomeModel {
     private float amount;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "income_user_id")
     private UserModel userModel;
 
     public Long getId() {
@@ -50,7 +50,7 @@ public class IncomeModel {
         this.amount = amount;
     }
 
-    @JsonBackReference
+    @JsonBackReference(value = "user-income")
     public UserModel getUserModel() {
         return this.userModel;
     }

@@ -1,6 +1,8 @@
 package com.financetracker.finance.services;
 
 import com.financetracker.finance.repository.UserModelRepository;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.financetracker.finance.models.UserDto;
 import com.financetracker.finance.models.UserModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +17,15 @@ public class AuthService {
         this.userModelRepository = userModelRepository;
     }
 
-    public Object login(String email,String password){
+    public UserDto login(String email,String password){
         UserModel user = userModelRepository.findByEmail(email);
         if(user!=null && password.equals(user.getPassword())){
-            return "Login successfull" ;   
+            return new UserDto(
+                user.getFirstname(),
+                user.getLastname(),
+                user.getEmail(),
+                user.getId()
+            );   
         }
         return null;
     }

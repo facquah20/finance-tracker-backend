@@ -24,7 +24,7 @@ public class UserExpenses {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "expenses_user_id")
     private UserModel userModel;
 
     public UserExpenses(){
@@ -69,7 +69,7 @@ public class UserExpenses {
         this.date = date;
     }
 
-    @JsonBackReference
+    @JsonBackReference(value = "user-expenses")
     public UserModel getUserModel() {
         return this.userModel;
     }
