@@ -1,0 +1,56 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+.login-container{
+    width: 100vw;
+    height: 100vh;
+    padding:5px;
+}
+
+.login-container > div{
+    max-width: 600px;
+    border:2px solid green;
+    margin-left: auto;
+    margin-right: auto;
+    padding:15px;
+    margin-top:10%;
+    border-radius: 5px;
+}
+
+.login-container div form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.login-container div form div{
+    margin:5px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.login-container div form label{
+    font-size: 1.3rem;
+    padding:5px;
+    font-weight: bold;
+}
+
+#user-email,
+#user-password{
+    padding:10px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+}
+
+
+#login-button{
+    width:40%;
+    padding:10px;
+    background-color: green;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border:0;
+    border-radius: 5px;
+    margin: auto;
+    cursor: pointer;
+}

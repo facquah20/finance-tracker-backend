@@ -1,0 +1,96 @@
+*{
+    margin:0;
+    padding:0;
+    font-size: 1rem;
+}
+
+.main-page{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    padding:5px;
+    height: 100vh;
+}
+.head-message{
+    width:100%;
+    letter-spacing: 0.1rem;
+    font-family: sans-serif;
+    padding:10px;
+}
+.head-message >h1{
+    text-align: center;
+    font-size:3rem;
+}
+
+.authentication-link{
+    width:auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.login-button{
+    width:12rem;
+    border-radius: 5px;
+    background-color:rgba(0, 128, 0, 0.889);
+    border:0;
+    padding:10px;
+}
+.login-button a{
+    text-decoration: none;
+    padding:5px 10px;
+    color:white;
+    font-weight: 500;
+    
+}
+
+.image-container{
+    min-width: 100%;
+    height:100vh;
+    background-color:lightblue;
+    margin-top:0.8rem;
+}
+
+.webinfo-text{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding:5px;
+    margin-top:10px;
+    font-size:1.2rem;
+    
+}
+.webinfo-text div h2{
+    font-size: 2rem;
+}
+.webinfo-text p{
+    margin-top:10px;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    text-align: justify;
+    line-height: 1.5;
+}
+.webinfo-text ul{
+    border:1px solid grey;
+    border-radius: 5px;
+    list-style:none;
+    font-size: 1.1rem;
+}
+.webinfo-text ul li{
+    text-align: left;
+    padding:5px;
+    font-size: 1.1rem;
+}
+
+@media  screen and (min-width:700px) {
+   .main-page{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+   } 
+   .authentication-link{
+    align-self: flex-end;
+   }
+   .webinfo-text{
+    text-overflow: ellipsis;
+   }
+    
+}

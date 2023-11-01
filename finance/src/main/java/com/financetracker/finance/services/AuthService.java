@@ -1,7 +1,6 @@
 package com.financetracker.finance.services;
 
 import com.financetracker.finance.repository.UserModelRepository;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.financetracker.finance.models.UserDto;
 import com.financetracker.finance.models.UserModel;
 
