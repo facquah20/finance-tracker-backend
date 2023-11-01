@@ -30,4 +30,8 @@ public class ViewController{
     public String displayExpensesPage(){
         return "expenses";
     }
+    @GetMapping("/signup")
+    public String signup(){
+        return "signup";
+    }
 }

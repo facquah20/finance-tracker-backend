@@ -3,15 +3,17 @@
     margin:0;
 }
 
-.login-container{
+.login-container,
+.signup-container{
     width: 100vw;
     height: 100vh;
     padding:5px;
 }
 
-.login-container > div{
-    max-width: 600px;
-    border:2px solid green;
+.login-container > div,
+.signup-container>div{
+    max-width: 400px;
+    border:4px solid whitesmoke;
     margin-left: auto;
     margin-right: auto;
     padding:15px;
@@ -19,31 +21,42 @@
     border-radius: 5px;
 }
 
-.login-container div form{
+.login-container div form,
+.signup-container div form{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.login-container div form div{
+.login-container div form div,
+.signup-container div form div{
     margin:5px;
     display: grid;
     grid-template-columns: 1fr;
 }
-.login-container div form label{
-    font-size: 1.3rem;
+.login-container div form label,
+.signup-container div form label{
+    font-size: 1.1rem;
     padding:5px;
     font-weight: bold;
 }
 
 #user-email,
-#user-password{
+#user-password,
+#lastname,
+#firstname,
+#password,
+#confirm-password
+{
     padding:10px;
-    font-size: 1.3rem;
+    font-size: 1rem;
     border-radius: 5px;
+    outline:none;
+    border-color:whitesmoke;
 }
 
 
-#login-button{
+#login-button,
+#signup-button{
     width:40%;
     padding:10px;
     background-color: green;
@@ -53,4 +66,14 @@
     border-radius: 5px;
     margin: auto;
     cursor: pointer;
+}
+.error-message{
+    text-align: center;
+    color:red;
+    font-size: 1rem;
+}
+.signup-message{
+    text-align: center;
+    color:green;
+    font-size: 1rem;
 }

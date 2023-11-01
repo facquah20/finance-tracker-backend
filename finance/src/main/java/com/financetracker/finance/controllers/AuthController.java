@@ -27,7 +27,6 @@ public class AuthController {
 
     @PostMapping
     public ResponseEntity<Object> login(@RequestBody LoginData user){
-        System.out.println(user.getPassword());
         UserDto res = authService.login(user.getEmail(),user.getPassword());
         try{
         ObjectMapper objectMapper = new ObjectMapper();
