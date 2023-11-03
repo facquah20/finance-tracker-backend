@@ -77,7 +77,8 @@ async function initiateLoginProcess(){
         console.log(res);
     errorMessageContainer.textContent='Success';
     errorMessageContainer.style.color = 'green';
-     //storeUserInfo(res);
+     storeUserInfo(res);
+     window.location.replace(nextPageAfterLogin);
 
     }    
     setDisableLoginButtonToFalse();
