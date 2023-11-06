@@ -7,7 +7,7 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
-    
+
 }
 .top-navigation-desktop{
     display: none;
@@ -22,10 +22,10 @@ body{
     flex-direction: row;
     justify-content: flex-start;
 }
-.sub-top p{
+.sub-top h2{
     color:white;
     font-weight: bold;
-    font-size:1.3rem;
+    font-size:2rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     margin: top 10px;
@@ -100,7 +100,7 @@ body{
 
 .action-areas{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap:5px;
     
 }
@@ -112,7 +112,8 @@ body{
 }
 
 .refresh-for-update button,
-.add-income button{
+.add-income button,
+.add-expenses button{
     border: 1px solid lightgreen;
     border-radius: 5px;
     padding:10px;
@@ -127,6 +128,20 @@ body{
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    animation: table 300ms linear;
+}
+
+@keyframes table {
+    0%{
+        transform: translateY(-300px);
+    }
+    50%{
+        transform: translateY(-100px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+    
 }
 .table-of-information >h3{
     font-weight: bold;

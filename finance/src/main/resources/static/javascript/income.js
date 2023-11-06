@@ -1,3 +1,10 @@
+document.addEventListener('DOMContentLoaded',()=>{
+    const userId = JSON.parse(localStorage.getItem('userInfo'));
+    if(userId==null){
+        window.location.replace("/");
+    }
+})
+
 const  humbergerIcon = document.getElementById("humberger-icon");
 const closeMenuButton = document.getElementsByClassName("close-icon")[0];
 
