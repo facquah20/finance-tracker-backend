@@ -80,13 +80,15 @@ function sendSignupRequestToServer(url){
     else if(typeof isValidField == 'boolean' && isValidField==true){
         /* now you can make request */
         console.log("now sending request")
-        disableSignupButton();
+        signupButton.innerText='Signing up...';
         const params = getSignupBody({firstname:firstname.value,lastname:lastname.value,email:email.value,password:password.value,})
         makeRequest(params,url).then(
             res=>{
                 signupInfoContainer.textContent=res;
             }
-        ).catch(err=>console.log(err)).finally(undoDisable())
+        ).catch(err=>console.log(err)).finally(()=>{
+            signupButton.innerText='Signup'
+        })
     }
     else {
         signupInfoContainer.textContent = "Invalid email address";

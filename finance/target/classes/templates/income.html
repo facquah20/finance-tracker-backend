@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/income.css">
+    <title>Track your income</title>
+</head>
+<body>
+    <div class="top-navigation-mobile">
+        <div class="sub-top">
+            <img src="/images/humberger-icon.jpg" width="50" height="50" id="humberger-icon">
+            <h2>FinTracker</h2>
+        </div>
+        <div class="mobile-nav-view">
+            <!--close navigation bar-->
+            <div class="close-icon">
+                <p>&times;</p>
+            </div>
+            <div>
+                <div class="nav-item">
+                    <a href="/profile">Profile</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/income">Income</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/expenses">Expenses</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/transactions">Transactions</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">Blog</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="top-navigation-desktop">
+        <div>
+            <a href="/profile">Profile</a>
+        </div>
+        <div>
+            <a href="/income">Income</a>
+        </div>
+        <div>
+            <a href="/expenses">Expenses</a>
+        </div>
+        <div>
+            <a href="/transactions">Transactions</a>
+        </div>
+        <div>
+            <a href="#">Blog</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="action-areas">
+            <div class="refresh-for-update">
+                <button>Refresh for updates</button>
+            </div>
+            <div class="add-income">
+                <button>Add New Income</button>
+            </div>
+        </div>
+        <div class="table-of-information">
+            <h3>Records of Your Income</h3>
+            <div class="fetching-data-state"></div>
+            <!--This part will be generated dynamically-->
+            <table id="table-data">
+                <tr>
+                    <th>Id</th>
+                    <th>Amount(GHS)</th>
+                    <th>Source of Income</th>
+                    <th>Actions</th>
+                </tr>
+                
+               
+            </table>
+        </div>
+        <div class="record-summary">
+            <div class="total-income">
+                <p>Total Income (GHS):<span id="total-income">0.00</span></p>
+            </div>
+        </div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
+                <h3>Add New Income</h3>
+                <p id="backend-message"></p>
+                <input type="text" placeholder="source of income" id="source-input-area">
+                <input type="number" placeholder="amount" step="0.01" id="amount-input-area">
+                <button id="add-btn">Add</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Contact Developer: <span>acquahfrank25@gmail.com</span></p>
+    </footer>
+   
+<script type="text/javascript" src="/javascript/income.js"></script>
+</body>
+</html> 

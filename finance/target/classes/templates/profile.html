@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/income.css">
+    <title>User Profile</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        .container{
+            max-width: 500px;
+            margin:0 auto;
+            padding:20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1{
+            text-align: center;
+        }
+        .user-info{
+            text-align: center;
+        }
+        .logout-btn{
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .logout-btn button{
+            background-color: #3498db;
+            color:#fff;
+            border:none;
+            padding:10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-navigation-mobile">
+        <div class="sub-top">
+            <img src="/images/humberger-icon.jpg" width="50" height="50" id="humberger-icon">
+            <h2>FinTracker</h2>
+        </div>
+        <div class="mobile-nav-view">
+            <!--close navigation bar-->
+            <div class="close-icon">
+                <p>&times;</p>
+            </div>
+            <div>
+                <div class="nav-item">
+                    <a href="/profile">Profile</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/income">Income</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/expenses">Expenses</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/transactions">Transactions</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">Blog</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="top-navigation-desktop">
+        <div>
+            <a href="/profile">Profile</a>
+        </div>
+        <div>
+            <a href="/income">Income</a>
+        </div>
+        <div>
+            <a href="/expenses">Expenses</a>
+        </div>
+        <div>
+            <a href="/transactions">Transactions</a>
+        </div>
+        <div>
+            <a href="#">Blog</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="user-info">
+            <p><strong>First name: </strong><span id="firstname"></span></p>
+            <p><strong>Last name: </strong><span id="lastname"></span></p>
+            <p><strong>Email: </strong><span id="email"></span></p>
+            <p><strong>Id: </strong><span id="userId"></span></p>
+        </div>
+        <div class="logout-btn">
+            <button>Logout</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="/javascript/profile.js"></script>
+</body>
+</html>
