@@ -16,7 +16,7 @@ install. Run mvn sprint-boot:run in your terminal from the root of your director
 The command will start the server on http://localhost:8080.
 
 # Current State of the Project
-Buiding the APIs for the frontend. 
+Web app has been deployed
 
 # To view the source code check out the master branch
 
@@ -296,7 +296,8 @@ This endpoint allows you to change or update the amount transacted
 - **Body**: transaction amount updated successfully
 
 
-
+# Link To the Project
+https://fintracker-znxn.onrender.com
 
 # Contributions
 Contributions on this project are warmly welcomed. You can reach out to the developer at:
